@@ -17,6 +17,5 @@ export class DatabaseConfig {
   ) {
     this.mongodbName = config.mongodbName;
     this.mongodbUri = config.mongodbUri;
-    console.log('aaaaaaaaaa', this.mongodbUri);
   }
 }

@@ -1,4 +1,9 @@
-import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common';
 import { Db, MongoClient } from 'mongodb';
 import { DatabaseConfig } from '../../config';
 import mongoose from 'mongoose';
@@ -9,9 +14,10 @@ export class MongodbService implements OnModuleInit, OnModuleDestroy {
   private client: MongoClient;
   private db: Db;
 
-  constructor() {
+  constructor(@Inject(DatabaseConfig) config: DatabaseConfig) {
     mongoose.set('debug', true);
     mongoose.set('debug', { color: true });
+    this.config = config;
   }
 
   async onModuleInit() {
