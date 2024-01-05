@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { UserType } from '@prisma/client';
 
-export class SignUpResponse {
+export class LoginResponse {
   @ApiProperty({
     enum: UserType,
     example: UserType.ADMIN,

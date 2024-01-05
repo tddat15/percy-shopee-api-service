@@ -33,7 +33,7 @@ class SignUpBody {
   password: string;
 }
 
-export class SignUpRequestBody {
+export class LoginRequestBody {
   @ApiProperty({
     description: 'user',
     example: SignUpBody,
