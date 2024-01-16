@@ -23,10 +23,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prisma:m": "npx prisma migrate dev --schema=./src/databases/postgresql_prisma/schema.prisma",
-    "prisma:m-c": "npx prisma migrate dev --create-only --schema=./src/databases/postgresql_prisma/schema.prisma",
-    "prisma:deploy": "npx prisma migrate deploy --schema=./src/databases/postgresql_prisma/schema.prisma",
-    "prisma:g": "npx prisma generate --schema=./src/databases/postgresql_prisma/schema.prisma"
+    "prisma-p:m": "npx prisma migrate dev --schema=./src/databases/postgresql_prisma/schema.prisma",
+    "prisma-p:m-c": "npx prisma migrate dev --create-only --schema=./src/databases/postgresql_prisma/schema.prisma",
+    "prisma-p:deploy": "npx prisma migrate deploy --schema=./src/databases/postgresql_prisma/schema.prisma",
+    "prisma-p:g": "npx prisma generate --schema=./src/databases/postgresql_prisma/schema.prisma",
+    "prisma-m:m": "npx prisma migrate dev --schema=./src/databases/mongodb/schema.prisma",
+    "prisma-m:m-c": "npx prisma migrate dev --create-only --schema=./src/databases/mongodb/schema.prisma",
+    "prisma-m:deploy": "npx prisma migrate deploy --schema=./src/databases/mongodb/schema.prisma",
+    "prisma-m:g": "npx prisma generate --schema=./src/databases/mongodb/schema.prisma"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -38,6 +42,7 @@
     "@prisma/client": "^5.7.1",
     "auth0": "^4.2.0",
     "axios": "^1.6.3",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "compression": "^1.7.4",
     "helmet": "^7.1.0",
@@ -49,6 +54,8 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@nestjs/class-transformer": "^0.4.0",
+    "@nestjs/class-validator": "^0.13.4",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",

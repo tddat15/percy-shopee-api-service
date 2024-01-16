@@ -3,9 +3,11 @@ import { HealthCheck } from './helpers/check.connect';
 import { MongodbModule } from './databases/mongodb';
 import { ConfigModule } from './config';
 import { AuthModule } from './modules/auth';
-import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [HealthCheck, MongodbModule, ConfigModule, AuthModule, UserModule],
+  imports: [HealthCheck, MongodbModule, ConfigModule, AuthModule],
+  controllers: [],
+  providers: [],
+  exports: [],
 })
 export class AppModule {}

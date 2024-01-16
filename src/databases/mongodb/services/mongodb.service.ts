@@ -2,11 +2,11 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { Prisma, PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class PrismaService
+export class MongodbService
   extends PrismaClient<Prisma.PrismaClientOptions, 'query'>
   implements OnModuleInit
 {
-  private readonly logger = new Logger(PrismaService.name);
+  private readonly logger = new Logger(MongodbService.name);
 
   constructor() {
     super({

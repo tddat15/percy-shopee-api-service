@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import * as compression from 'compression';
 import { ApiConfig, AppConfig } from './config';
 import { useContainer } from 'class-validator';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +15,12 @@ async function bootstrap() {
   //init middleware
   app.use(helmet());
   app.use(compression());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+    }),
+  );
 
   //set prefix for all url and api
   app.setGlobalPrefix(prefix);
